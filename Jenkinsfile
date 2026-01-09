@@ -17,7 +17,7 @@ pipeline {
         stage('Deploy CloudFormation Stack') {
             steps {
                 withAWS(credentials: 'aws-access-key', region: "${AWS_DEFAULT_REGION}") {
-                    sh '''
+                    bat '''
                     aws cloudformation deploy \
                       --template-file template.yaml \
                       --stack-name $STACK_NAME \
